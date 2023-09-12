@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  height: 100vh;
+}
+body {
+  font-size: 1rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  font-weight: 500;
+}
+
+.light-theme {
+  color: #1e1e1e;
+}
+
+.hover-crl:hover path {
+  fill: #eaeaea;
+}
+.hover-crl:hover span {
+  color: #eaeaea;
+}
+
+h1 {
+  font-size: 1.4rem;
+  word-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+  .background-crl {
+    background: linear-gradient(to bottom, #ffaeae, #f6d6d6);
+    color: black;
+    border-radius: 4px;
+    padding: 15px 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: clamp(1rem, 5vw, 1.7rem);
+    word-spacing: 2px;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+.custom-siblings p {
+  font-size: 22px;
+  color: white;
+  margin-bottom: 20px;
+}
+.custom-siblings button {
+  border: 1px solid transparent !important;
+  font-size: 16px !important;
+  background-color: white;
+  border-radius: 2px;
+  padding: 10px 20px !important;
+  width: max-content !important;
+  height: max-content !important;
+  margin: auto !important;
+}
+
+.btns-wrapper-shadow-light button {
+  box-shadow: 3px 4px 8px #f0f0f0;
+}
+.btns-wrapper-shadow-dark button {
+  box-shadow: 3px 4px 8px #000000;
+}
+.btns-wrapper button {
+  padding: 10px;
+  background-color: #eaeaea;
+  border-radius: 2px;
+  color: #1e1e1e !important;
+  transition: all 0.4s ease-in;
+}
+
+.btns-wrapper button:hover {
+  background-color: #ff9d9d;
+}
+
+.active-btn {
+  background: linear-gradient(to right, #ffa8a8, #ffd2d2);
+}
+
+.copyrights-wrapper a {
+  position: relative;
+  width: max-content;
+  font-size: 16px;
+}
+
+.copyrights-wrapper a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  bottom: 1px;
+  transition: 0.3s;
+  transition-timing-function: ease-in-out;
+  transform: scaleX(0);
+}
+.copy-wrapper-light a::after {
+  background-color: #1e1e1e;
+}
+.copy-wrapper-dark a::after {
+  background-color: #fdfdfd;
+}
+
+.copyrights-wrapper a:hover::after {
+  transform: scaleX(1);
+}
+.svg-wrapper svg {
+  overflow: visible;
+}
+
+.svg-wrapper path {
+  transition: all 0.2s ease;
+}
+
+.svg-wrapper a:hover path {
+  transform: scale(1.4);
+}
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 300px;
+}
+
+.game-board button {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  margin-left: -1px;
+  margin-bottom: -1px;
+  font-size: 2.7rem;
+}
+
+.light-theme-board button {
+  border: 1px solid #1e1e1e;
+}
+.dark-theme-board button {
+  border: 1px solid #e7e7e7;
+}
+
+.score-board div {
+  text-align: center;
+}
+
+.s-absolute aside {
+  position: absolute;
+}
+
+.svg-opacity aside svg {
+  opacity: 0.9;
+}
+.clr-strong-gray {
+  text-shadow: 0px 1px 4px #ff8383;
+  color: #ff8383;
+  font-weight: 600;
+}
+
+.clr-strong-shadow-gray {
+  text-shadow: 0px 1px 4px #ff8383;
+  color: #ff8383;
+  font-weight: 600;
+}
+.spaced-gray-buttons button {
+  display: flex;
+  align-items: center;
+  color: #1e1e1e;
+  position: relative;
+  border-radius: 4px;
+  width: max-content;
+  position: relative;
+}
+
+.spaced-gray-buttons button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  background-color: #1e1e1e;
+  height: 2px;
+  bottom: -1px;
+  transition: 0.3s;
+  transition-timing-function: ease-in-out;
+  transform: scaleX(0);
+}
+.spaced-gray-buttons button:hover::after {
+  transform: scaleX(1);
+}
+
+.transform-origin {
+  transform-origin: 44px 14px;
+  position: relative;
+  left: 4px;
+  transform: translateX(4px);
+}
+.green-shadow-text-child button {
+  text-shadow: none;
+  color: #ff00ff;
+}
+
+.green-shadow-text-child button:hover {
+  text-shadow: 0px 1px 3px #ff00ff;
+  color: #ff00ff;
+}
+
+.dark-theme-bg {
+  background-color: #ffa8a8;
+}
+
+.bg-slight-black {
+  background: #1e1e1e;
+  box-shadow: 1px 3px 8px #0e0d0d;
+}
+
+@media (max-width: 360px) {
+  .game-board button {
+    height: 80px;
+    width: 80px;
+  }
+  h1 {
+    font-size: 1.15rem;
+  }
+}
+@media (max-width: 285px) {
+  .game-board button {
+    height: 70px;
+    width: 70px;
+  }
+}
+
+@media (max-width: 230px) {
+  .game-board button {
+    height: 58px;
+    width: 58px;
+  }
+  .background-crl {
+    background: linear-gradient(to bottom, #ffaeae, #f6d6d6);
+    border-radius: 4px;
+    padding: 10px;
+  }
+}
