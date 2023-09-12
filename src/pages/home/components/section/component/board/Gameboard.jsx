@@ -5,10 +5,11 @@ import MultiplayerBoard from "./playerBoards/MultiplayerBoard";
 
 export default function Gameboard() {
   const isSinglePlayer = useSelector((state) => state.playerMode);
+  const isLightTheme = useSelector((state) => state.themeToggle);
 
   if (isSinglePlayer) {
-    return <SingleplayerBoard />;
+    return <SingleplayerBoard isLightTheme={isLightTheme} />;
   } else {
-    return <MultiplayerBoard />;
+    return <MultiplayerBoard isLightTheme={isLightTheme} />;
   }
 }

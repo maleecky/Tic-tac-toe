@@ -3,16 +3,17 @@ import { checkWinWhen } from "../../utils/winCheck";
 import { difficultAiPlayer, easyAi } from "../../computerTokens/aiplayer";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 
-export default function SingleplayerBoard() {
+export default function SingleplayerBoard({ isLightTheme }) {
   const [squares, setSquares] = useState(new Array(Array(9).fill(null)));
   const [currentMoves, setCurrentMoves] = useState(0);
   const [winsCount, setwinsCount] = useState(0);
   const [tiesCount, settiesCount] = useState(0);
   const [lossCount, setlossCount] = useState(0);
   const currentSquares = squares[currentMoves];
+  const isXnext = currentMoves % 2 === 0;
   const [winner, setWinner] = useState(null);
   const isEasy = useSelector((state) => state.difficultLevelToggle);
-  const isLightTheme = useSelector((state) => state.themeToggle);
+
   const humanPlayer = "X";
   const aiPlayer = "O";
 
@@ -98,12 +99,15 @@ export default function SingleplayerBoard() {
   return (
     <div className="flex flex-1 items-center py-6">
       <div className="flex flex-col items-center space-y-2.5 m-auto">
-        <div className="flex items-end text-lg"></div>
+        <div className="flex items-end text-lg">
+          {" "}
+          Next player is {isXnext ? "X" : "O"}
+        </div>
         <div className="flex relative">
           <div
             className={`game-board ${
               isLightTheme ? "light-theme-board" : "dark-theme-board"
-            } relative pb-4`}
+            } relative`}
           >
             {currentSquares.map((square, index) => {
               return (

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { checkWinWhen } from "../../utils/winCheck";
-import { useSelector } from "react-redux/es/hooks/useSelector";
 
-export default function MultiplayerBoard() {
+export default function MultiplayerBoard({ isLightTheme }) {
   const [squares, setSquares] = useState(new Array(Array(9).fill(null)));
   const [currentMoves, setCurrentMoves] = useState(0);
   const isXNext = currentMoves % 2 === 0;
@@ -11,7 +10,6 @@ export default function MultiplayerBoard() {
   const [lossCount, setlossCount] = useState(0);
   const currentSquares = squares[currentMoves];
   const [winner, setWinner] = useState(null);
-  const isLightTheme = useSelector((state) => state.themeToggle);
 
   useEffect(() => {
     const player1 = checkWinWhen(["X", "X", "X"], currentSquares).length > 0;
@@ -56,7 +54,9 @@ export default function MultiplayerBoard() {
   return (
     <div className="flex flex-1 py-6 items-center">
       <div className="flex flex-col items-center space-y-2.5 m-auto">
-        <div className="flex items-end text-lg"></div>
+        <div className="flex items-end text-lg">
+          Next player is {isXNext ? "X" : "O"}
+        </div>
         <div className="flex relative">
           <div
             className={`game-board ${
@@ -88,7 +88,7 @@ export default function MultiplayerBoard() {
                 <div className="w-full flex items-center">
                   <button
                     className="capitalize"
-                    style={{ color: isLightTheme ? "#fdfdfd" : "#4d4d4d" }}
+                    style={{ color: isLightTheme ? "black" : "#4d4d4d" }}
                     onClick={() => {
                       setCurrentMoves(0);
                       setWinner(null);
